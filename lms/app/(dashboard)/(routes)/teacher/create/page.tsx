@@ -41,7 +41,7 @@ const CreatePage = () => {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         // console.log("Values: ", values); 
         try {
-            const response = await axios.post("/api/course", values);
+            const response = await axios.post("/api/courses", values);
             router.push(`/teacher/courses/${response.data.id}`);
         } catch (error) {
             // console.log("Something went wrong: ", error); 
