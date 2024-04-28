@@ -33,7 +33,7 @@ export const ImageForm = ({initialData, courseId}: ImageFormProps) => {
         // console.log("Values: ", values); 
         try {
             await axios.patch(`/api/courses/${courseId}`, values);
-            toast.success('Course upated');
+            toast.success('Image updated');
             toggleEdit();
             router.refresh();
         } catch (error) {

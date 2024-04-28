@@ -51,7 +51,7 @@ export const CategoryForm = ({initialData, courseId, options}: CategoryFormProps
         // console.log("Values: ", values); 
         try {
             await axios.patch(`/api/courses/${courseId}`, values);
-            toast.success('Course upated');
+            toast.success('Category updated');
             toggleEdit();
             router.refresh();
         } catch (error) {
