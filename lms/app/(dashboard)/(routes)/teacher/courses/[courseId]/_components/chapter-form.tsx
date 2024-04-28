@@ -10,6 +10,7 @@ import toast from 'react-hot-toast';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { Chapter, Course } from '@prisma/client';
+import { ChaptersList } from './chapters-list';
 
 import {
     Form,
@@ -113,7 +114,11 @@ export const ChaptersForm = ({initialData, courseId}: ChaptersFormProps) => {
                     !initialData.chapters.length && "text-slate-500 italic"
                 )}>
                     {!initialData.chapters.length && "No Chapters"}
-                    {/* TODO: Add a list of chapters */}
+                    <ChaptersList 
+                        onEdit={() => {}}
+                        onReorder={() => {}}
+                        items={initialData.chapters || []}
+                    />
                 </div>
             )}
             {!isCreating && (
