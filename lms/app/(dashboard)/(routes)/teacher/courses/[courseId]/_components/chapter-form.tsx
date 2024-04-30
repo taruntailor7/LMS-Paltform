@@ -65,7 +65,7 @@ export const ChaptersForm = ({initialData, courseId}: ChaptersFormProps) => {
     const onReorder = async (updateData: { id: string; position: number }[]) => {
         try {
             setIsUpdating(true);
-            await axios.put(`/api/course/${courseId}/chapters/reorder`, {
+            await axios.put(`/api/courses/${courseId}/chapters/reorder`, {
                 list: updateData
             });
             toast.success("Chapters reordered");
@@ -78,7 +78,7 @@ export const ChaptersForm = ({initialData, courseId}: ChaptersFormProps) => {
     }
 
     const onEdit = (id: string) => {
-        router.push(`/teacher/course/${courseId}/chapters/${id}`);
+        router.push(`/teacher/courses/${courseId}/chapters/${id}`);
     }
 
     return (  
