@@ -31,18 +31,16 @@ export const ChapterActions = ({
             setIsLoading(true);
 
             if (isPublished) {
-                await axios.patch(`api/courses/${courseId}/chapters/${chapterId}/unpublish`);
+                await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}/unpublish`);
                 toast.success('Chapter unpublished');
             } else {
-                await axios.patch(`api/courses/${courseId}/chapters/${chapterId}/publish`);
+                await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}/publish`);
                 toast.success('Chapter published');
             }
 
-            // toast.success('Chapter deleted');
-            // // router.refresh();
-            // router.push(`/teacher/courses/${courseId}`);
-            // router.refresh();
+            router.refresh();
         } catch (error) {
+            console.log("error...: ", error);
             toast.error("Something went wrong")
         } finally {
             setIsLoading(false);
