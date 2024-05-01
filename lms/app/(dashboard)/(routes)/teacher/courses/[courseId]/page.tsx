@@ -57,22 +57,21 @@ const CourseIdPage = async ({ params }: { params: {courseId: string} }) => {
         course.description,
         course.imageUrl,
         course.price,
-        // course.categoryId,
+        // course.categoryId,  // Category!
         course.chapters.some(chapter => chapter.isPublished),
     ]
 
-    const optionalFields = [course.categoryId]; // for category
+    // const optionalFields = [course.categoryId]; // for category
 
     const totalFields = requiredFields.length;
     const completedFields = requiredFields.filter(Boolean).length;
 
-    const completedOptionalFields = optionalFields.filter(Boolean).length; // for category
+    // const completedOptionalFields = optionalFields.filter(Boolean).length; // for category
 
     const completionText = `(${completedFields}/${totalFields})`;
 
-    const isComplete = requiredFields.every(Boolean) || 
-    (requiredFields.filter(f => f !== course.categoryId).every(Boolean) && completedOptionalFields >= 0);
-
+    const isComplete = requiredFields.every(Boolean) 
+    // || (requiredFields.filter(f => f !== course.categoryId).every(Boolean) && completedOptionalFields >= 0);
     return ( 
         <>
             {!course.isPublished && (
