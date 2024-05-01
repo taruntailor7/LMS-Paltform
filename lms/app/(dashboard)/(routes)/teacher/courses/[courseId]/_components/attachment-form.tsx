@@ -32,7 +32,7 @@ export const AttachmentForm = ({initialData, courseId}: AttachmentFormProps) => 
         // console.log("Values: ", values); 
         try {
             await axios.post(`/api/courses/${courseId}/attachments`, values);
-            toast.success('Course upated');
+            toast.success('Course updated');
             toggleEdit();
             router.refresh();
         } catch (error) {
