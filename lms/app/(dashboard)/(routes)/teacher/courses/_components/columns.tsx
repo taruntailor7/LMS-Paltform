@@ -4,7 +4,7 @@ import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 
 import { Course } from "@prisma/client"
 import { ColumnDef } from "@tanstack/react-table"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button" 
 
 export const columns: ColumnDef<Course>[] = [
   {
