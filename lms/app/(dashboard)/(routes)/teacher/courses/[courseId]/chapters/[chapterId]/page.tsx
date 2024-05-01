@@ -1,23 +1,24 @@
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, LayoutDashboard } from "lucide-react";
 
 import { db } from "@/lib/db";
+import { ArrowLeft, LayoutDashboard } from "lucide-react";
 import { IconBadge } from "@/components/icon-badge";
 import { ChapterTitleForm } from "./_components/chapter-title-form";
 
 const ChapterIdPage = async ({
     params
-}: { params: { courseId: string; chapterId: string}
+}: {
+    params: { courseId: string; chapterId: string }
 }) => {
     const { userId } = auth();
 
     if (!userId) {
         return redirect('/');
     }
-    
-    const chapter = db.chapter.findUnique({
+
+    const chapter = await db.chapter.findUnique({
         where: {
             id: params.chapterId,
             courseId: params.courseId
@@ -31,16 +32,17 @@ const ChapterIdPage = async ({
         return redirect('/');
     }
 
+
     const requiredFields = [
-        chapter.title,
-        chapter.description,
-        chapter.videoUrl
-    ];
+        chapter?.title,
+        chapter?.description,
+        chapter?.videoUrl
+    ]
 
     const totalFields = requiredFields.length;
-    const completedFields = requiredFields.filter(Boolean).length; 
+    const completedFields = requiredFields.filter(Boolean).length;
 
-    const completionText = `(${completedFields}/${totalFields})`;
+    const completionText = `(${completedFields}/${totalFields})`
 
     return (
         <div className="p-6">
@@ -84,7 +86,7 @@ const ChapterIdPage = async ({
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default ChapterIdPage;
+export default ChapterIdPage

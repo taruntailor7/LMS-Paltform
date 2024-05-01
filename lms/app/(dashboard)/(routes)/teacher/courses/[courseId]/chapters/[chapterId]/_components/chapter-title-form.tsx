@@ -48,7 +48,7 @@ export const ChapterTitleForm = ({initialData, courseId, chapterId}: ChapterTitl
         // console.log("Values: ", values); 
         try {
             await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}`, values);
-            toast.success('Chapter updated');
+            toast.success('Chapter Title updated');
             toggleEdit();
             router.refresh();
         } catch (error) {
