@@ -2,9 +2,6 @@ import Mux from "@mux/mux-node";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-import dotenv from 'dotenv';
-dotenv.config();
-
 import { db } from "@/lib/db";
 
 const muxConfig = {
