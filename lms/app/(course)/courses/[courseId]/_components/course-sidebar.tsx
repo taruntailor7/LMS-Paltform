@@ -50,7 +50,7 @@ export const CourseSidebar = async ({
                         id={chapter.id}
                         label={chapter.title}
                         isCompleted={!!chapter.userProgress?.[0]?.isCompleted}
-                        courseId={chapter.id}
+                        courseId={course.id}
                         isLocked={!chapter.isFree && !purchase}
                     />
                 ))}

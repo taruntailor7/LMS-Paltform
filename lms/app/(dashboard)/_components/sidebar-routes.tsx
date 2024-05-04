@@ -10,10 +10,15 @@ const guestRoutes = [
         label: "Dashboard",
         href: "/",
     },
+    // {
+    //     icon: Compass,
+    //     label: "Browse",
+    //     href: "/search",
+    // },
     {
         icon: Compass,
         label: "Browse",
-        href: "/search",
+        href: "/searches",
     },
 ]
 

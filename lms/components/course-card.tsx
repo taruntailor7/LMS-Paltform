@@ -26,7 +26,7 @@ export const CourseCard = ({
                         fill
                         className="object-cover"
                         alt={title}
-                        src={imageUrl}
+                        src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_1280.png"
                     />
                 </div>
                 <div className="flex flex-col pt-2">
@@ -52,7 +52,7 @@ export const CourseCard = ({
                     ) : (
                         <p className="text-md md:text-sm font-medium text-slate-700">
                             {formatePrice(price)}
-                          </p>
+                        </p>
                     )}
                 </div>
             </div> 
