@@ -32,6 +32,8 @@ export const CourseEnrollButton = ({
 
     return (
         <Button
+            onClick={onClick}
+            disabled={isLoading}
             size="sm"
             className="sm:w-full md:w-auto"
         >
